@@ -10,6 +10,7 @@ use Shopware\Core\Framework\DependencyInjection\CompilerPass\DisableTwigCacheWar
 use Shopware\Core\Framework\DependencyInjection\CompilerPass\EntityCompilerPass;
 use Shopware\Core\Framework\DependencyInjection\CompilerPass\FeatureFlagCompilerPass;
 use Shopware\Core\Framework\DependencyInjection\CompilerPass\FilesystemConfigMigrationCompilerPass;
+use Shopware\Core\Framework\DependencyInjection\CompilerPass\RepositoryAutowireCompilerPass;
 use Shopware\Core\Framework\DependencyInjection\CompilerPass\RouteScopeCompilerPass;
 use Shopware\Core\Framework\DependencyInjection\CompilerPass\TwigLoaderConfigCompilerPass;
 use Shopware\Core\Framework\DependencyInjection\FrameworkExtension;
@@ -84,6 +85,7 @@ class Framework extends Bundle
         $container->addCompilerPass(new RouteScopeCompilerPass());
         $container->addCompilerPass(new AssetRegistrationCompilerPass());
         $container->addCompilerPass(new FilesystemConfigMigrationCompilerPass());
+        $container->addCompilerPass(new RepositoryAutowireCompilerPass());
 
         $this->addCoreMigrationPath($container, __DIR__ . '/../Migration', 'Shopware\Core\Migration');
 

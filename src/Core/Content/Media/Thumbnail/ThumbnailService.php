@@ -236,7 +236,7 @@ class ThumbnailService
         $file = $this->getFileSystem($media)->read($filePath);
         $image = @imagecreatefromstring($file);
         if (!$image) {
-            throw new FileTypeNotSupportedException($media->getId());
+            throw new FileTypeNotSupportedException($media->getId(), $media->getFileName());
         }
 
         if (function_exists('exif_read_data')) {

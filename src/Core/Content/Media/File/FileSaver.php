@@ -403,7 +403,7 @@ class FileSaver
             }
         }
 
-        throw new FileTypeNotSupportedException($mediaId);
+        throw new FileTypeNotSupportedException($mediaId, $mediaFile->getFileName());
     }
 
     /**
